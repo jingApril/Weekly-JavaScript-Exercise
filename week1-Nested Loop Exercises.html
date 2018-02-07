@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Nested Loop Exercises</title>
-	<style>
-		input.custom {caret-color:red; font: 16px "Helvetica", "Arial", "sans-serif"}
-	</style>
+    <meta charset="UTF-8">
+    <title>Nested Loop Exercises</title>
+    <style>
+    input.custom {
+        caret-color: red;
+        font: 16px "Helvetica", "Arial", "sans-serif"
+    }
+    </style>
 </head>
+
 <body>
-	<label for="textInput">请输入数字</label><input type="text" id="textInput" class="custom">
-	<button onclick="showNumber()">确定</button>
-	<div id="output"></div>
-	<script>
-	function showNumber() {
-		var output = document.getElementById("output");
-		var number = document.getElementById("textInput").value;
-		console.log(number);
-		number = parseInt(number);
-		makeTriangle(number);
-	}
+    <label for="textInput">请输入数字</label>
+    <input type="text" id="textInput" class="custom">
+    <button onclick="showNumber()">确定</button>
+    <div id="output"></div>
+    <script>
+    function showNumber() {
+        var output = document.getElementById("output");
+        var number = document.getElementById("textInput").value;
+        number = parseInt(number);
+        makeTriangle(number);
+    }
 
-	function makeTriangle(height) {
-		var str = '';
-		var space =' ';
-		var n = height;
-		if (!Number.isInteger(n)) {
-			output.innerHTML= "this is not a number";
-		}
-		for (i= 1; i < n + 1; i ++) {
+    function makeTriangle(height) {
+		        var str = '';
+		        
+        var result = '';
+        var n = height;
+        if (!Number.isInteger(n)) {
+            output.innerHTML = "this is not a number";
+        }
+        for (var i = 1; i < n + 1; i++) {
 
-			for (var k = 0; k <= n-k; k++) {
-               for (var j = 1; j <= i; j++) {
-				str += i.toString();
-				space += space;
-				str =  space + str;
-			   }
-			}
+            for (var j = 1; j <= i; j++) {
+                 var space = '';           	                
+                 for (var k = n-j; k > 0; k--) {
 
-	       	console.log(str);
-	       	str = str + "<br/>";
-		}
-		output.innerHTML = str;
+                     space = space + '#' ;
 
-	}
+                  }
 
-	</script>
+                 str += i.toString();
+                 str =  space + str ;
+                 //result += "<br>";
+            }
+
+           str += "<br>";
+            console.log(str);
+           // result += result;   	
+
+        }
+
+        output.innerHTML = str;
+    }
+    </script>
 </body>
+
 </html>
